@@ -81,6 +81,7 @@ export default function Wuyah() {
   const [scrolled,   setScrolled]   = useState(false);
   const [email,      setEmail]      = useState("");
   const [submitted,  setSubmitted]  = useState(false);
+  const [submitting, setSubmitting] = useState(false);
   const [menuOpen,   setMenuOpen]   = useState(false);
 
   useEffect(() => {
@@ -89,9 +90,22 @@ export default function Wuyah() {
     return () => window.removeEventListener("scroll", fn);
   }, []);
 
-  const submit = (e) => {
+  const submit = async (e) => {
     e.preventDefault();
-    if (email) setSubmitted(true);
+    if (!email) return;
+    setSubmitting(true);
+    try {
+      await fetch("https://formspree.io/f/mgoddrlk", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+      setSubmitted(true);
+    } catch {
+      setSubmitted(true);
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -988,9 +1002,10 @@ export default function Wuyah() {
                         />
                         <button
                           type="submit"
-                          className="w-full font-display font-bold text-[14px] bg-[#18182A] text-white rounded-2xl py-4 hover:bg-[#E07A96] hover:scale-[1.02] transition-all duration-200 shadow-lg shadow-[#18182A]/20"
+                          disabled={submitting}
+                          className="w-full font-display font-bold text-[14px] bg-[#18182A] text-white rounded-2xl py-4 hover:bg-[#E07A96] hover:scale-[1.02] transition-all duration-200 shadow-lg shadow-[#18182A]/20 disabled:opacity-60 disabled:cursor-not-allowed"
                         >
-                          Get early access →
+                          {submitting ? "Sending…" : "Get early access →"}
                         </button>
                         <p className="text-[11px] text-[#7878A0] text-center font-light">No spam. Unsubscribe anytime.</p>
                       </form>
