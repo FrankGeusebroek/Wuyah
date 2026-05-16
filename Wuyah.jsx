@@ -253,7 +253,7 @@ export default function Wuyah() {
                       className="block"
                       style={{ WebkitTextStroke: "1.5px rgba(24,24,42,.3)", WebkitTextFillColor: "transparent" }}
                     >
-                      fitness.
+                      fitness
                     </span>
                     <span
                       style={{
