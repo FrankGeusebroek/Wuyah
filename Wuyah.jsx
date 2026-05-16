@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 
 /* ─── Tailwind config injection (CDN play-safe inline styles for non-standard values) ─── */
 const SUNRISE_BG =
-  "linear-gradient(172deg,#C2E8F6 0%,#CEEAF5 7%,#D8E8F0 15%,#E2DDEF 24%,#EDD1E7 32%,#F2C5D8 40%,#F3BBCA 48%,#F2B4B4 56%,#F0ACA0 64%,#EDAA86 73%,#E7A06C 83%,#E09458 92%,#D98744 100%)";
+  "linear-gradient(172deg,#C2E8F6 0%,#D4E8F2 15%,#D4B8D8 40%,#D4A5C5 55%,#D99060 75%,#D98744 100%)";
 
 /* ─── Reusable animation hook ─────────────────────────────────────────────── */
 function useReveal(threshold = 0.1) {
@@ -43,7 +43,7 @@ function Glass({ children, className = "", style = {} }) {
   return (
     <div
       className={`rounded-3xl border border-white/80 ${className}`}
-      style={{ background: "rgba(255,255,255,.56)", backdropFilter: "blur(20px)", ...style }}
+      style={{ background: "rgba(255,255,255,.72)", backdropFilter: "blur(20px)", ...style }}
     >
       {children}
     </div>
@@ -116,6 +116,10 @@ export default function Wuyah() {
         html { scroll-behavior: smooth; }
         body { font-family: 'DM Sans', sans-serif; }
         ::selection { background: rgba(255,255,255,.6); color: #18182A; }
+        @keyframes breathe {
+          0%,100% { transform: scale(1); opacity: 1; }
+          50%      { transform: scale(1.14); opacity: .72; }
+        }
         @keyframes float {
           0%,100% { transform: translateY(0) rotate(0deg); }
           50%      { transform: translateY(-11px) rotate(.4deg); }
@@ -233,7 +237,7 @@ export default function Wuyah() {
                   <div className="flex items-center gap-3 mb-8">
                     <div className="w-6 h-px bg-[#46466A]" />
                     <span className="text-[10px] font-bold tracking-[.18em] uppercase text-[#46466A]">
-                      Wuyah — Daily Mental Fitness · Pre-seed
+                      Wuyah · Daily Mental Fitness · Pre-seed
                     </span>
                   </div>
                 </Reveal>
@@ -249,7 +253,7 @@ export default function Wuyah() {
                       className="block"
                       style={{ WebkitTextStroke: "1.5px rgba(24,24,42,.3)", WebkitTextFillColor: "transparent" }}
                     >
-                      fitness
+                      fitness.
                     </span>
                     <span
                       style={{
@@ -265,8 +269,8 @@ export default function Wuyah() {
 
                 {/* Sub */}
                 <Reveal delay={0.16}>
-                  <p className="text-[17px] font-light text-[#46466A] leading-relaxed max-w-[440px] mt-6">
-                    Wuyah makes mental fitness part of your daily life. A structured system built on your identity — with a personalised Roadmap and an AI Coach that shows up every day.
+                  <p className="text-[17px] font-light text-[#6B6B7E] leading-relaxed max-w-[440px] mt-6">
+                    Wuyah makes mental fitness part of your daily life. A structured system built on your identity, with a personalised training schedule and an AI Coach that make sure you show up every day.
                   </p>
                 </Reveal>
 
@@ -290,7 +294,7 @@ export default function Wuyah() {
                 <Reveal delay={0.34}>
                   <div className="flex mt-10 border-t border-[#18182A]/10">
                     {[
-                      { n: "3 layers",  l: "Identity · Structure · Execution" },
+                      { n: "Daily",     l: "Built for consistency, not intensity" },
                       { n: "Pre-seed",  l: "In development · Raising now" },
                       { n: "B2C + B2B", l: "Dual revenue path" },
                     ].map(({ n, l }, i) => (
@@ -327,7 +331,7 @@ export default function Wuyah() {
                           </div>
                         </div>
                         <div className="mt-3 bg-white/15 rounded-xl p-2.5 text-[11px] text-white/88 leading-relaxed">
-                          "You've been consistent. Today, notice where you feel friction — that's where growth happens."
+                          "You've been consistent. Today, notice where you feel friction. That is where growth happens."
                         </div>
                       </div>
                       {/* Body */}
@@ -391,7 +395,7 @@ export default function Wuyah() {
         {/* ════════════════════════════════════════════════════════════════
             CATEGORY / BELIEF
         ════════════════════════════════════════════════════════════════ */}
-        <section className="py-24 px-6">
+        <section className="py-24 px-6" style={{background:"#F9F7F4"}}>
           <div className="max-w-[1100px] mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-[140px_1fr] gap-8 items-start">
               <Reveal><Label color="#E07A96">A new category</Label></Reveal>
@@ -400,12 +404,29 @@ export default function Wuyah() {
                   className="font-display font-extrabold leading-[1.18] tracking-tight text-[#18182A]"
                   style={{ fontSize: "clamp(22px,3.5vw,42px)", letterSpacing: "-1.3px" }}
                 >
-                  Physical fitness has the gym.<br />
-                  Mental fitness needs its daily system.
+                  Wuyah is building the mental operating system<br />
+                  designed for the new era.
                 </p>
-                <p className="text-[16px] text-[#46466A] font-light leading-relaxed max-w-[600px] mt-5">
-                  Wuyah is building a new category: daily mental fitness. Not therapy. Not meditation. Not coaching. A structured daily system — comparable to what physical fitness became in the 1980s — that helps people understand themselves, build direction, and grow consistently.
+                <p className="text-[16px] text-[#6B6B7E] font-light leading-relaxed max-w-[560px] mt-5">
+                  Wuyah is building a new category: daily mental fitness. Not therapy. Not meditation. Not coaching. A structured daily system that helps people understand themselves, build direction, and grow consistently.
                 </p>
+                <div className="mt-8 pl-5 border-l-[3px] border-[#5BB8D4]">
+                  <p className="font-display font-bold text-[#18182A] leading-[1.35]" style={{fontSize:"clamp(16px,2vw,22px)",letterSpacing:"-0.5px"}}>
+                    "Train your mind<br />like you train your body."
+                  </p>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-10 pt-8 border-t border-[#18182A]/10">
+                  {[
+                    ["Feels normal",   "No clinical framing. No wellness culture. Just practical daily training."],
+                    ["Actually works", "Built on behavioural science: repetition, reinforcement, real change."],
+                    ["Made for you",   "An AI that learns who you are and gets more useful over time."],
+                  ].map(([h, d]) => (
+                    <div key={h}>
+                      <div className="font-display font-black text-[13px] text-[#18182A] mb-1.5">{h}</div>
+                      <div className="text-[12px] text-[#6B6B7E] leading-relaxed font-light">{d}</div>
+                    </div>
+                  ))}
+                </div>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-8 pt-8 border-t border-[#18182A]/10">
                   {[
                     ["Understanding", "Insight into who you are and how you function"],
@@ -435,9 +456,9 @@ export default function Wuyah() {
                   className="font-display font-black text-right text-[#18182A]"
                   style={{ fontSize: "clamp(20px,3vw,38px)", letterSpacing: "-1.5px" }}
                 >
-                  A large market.<br />
+                  Everything exists.<br />
                   <span style={{ WebkitTextStroke: "1.5px rgba(24,24,42,.35)", WebkitTextFillColor: "transparent" }}>
-                    Structurally underserved.
+                    Nothing fits.
                   </span>
                 </h2>
               </div>
@@ -445,14 +466,14 @@ export default function Wuyah() {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-0.5">
               {[
-                { n:"01", c:"#5BB8D4", t:"Content without structure", b:"The global self-improvement market generates over $40B annually, yet most products are content libraries. Research consistently shows passive consumption alone produces limited behaviour change.", r:"rounded-l-3xl rounded-r-sm" },
-                { n:"02", c:"#E07A96", t:"No daily format",           b:"Physical fitness scaled when it acquired a daily format — the gym, the class, the routine. Mental fitness has no equivalent habitual daily practice across the general population.", r:"rounded-sm" },
-                { n:"03", c:"#E0733E", t:"Generic personalisation",   b:"Most apps personalise content recommendations. Wuyah starts earlier — with a psychological identity layer that shapes the entire system, not just what gets shown on a feed.", r:"rounded-r-3xl rounded-l-sm" },
+                { n:"01", c:"#5BB8D4", t:"Reading is not training", b:"The self-improvement market is full of content. Podcasts, books, articles. None of it changes behaviour on its own. Knowing what to do and actually doing it differently are not the same thing.", r:"rounded-l-3xl rounded-r-sm" },
+                { n:"02", c:"#E07A96", t:"Nothing built for daily use", b:"Therapy is for when something is wrong. Meditation apps are passive. Coaching is expensive and occasional. Nobody has built a system designed for daily mental training the way the gym was built for daily physical training.", r:"rounded-sm" },
+                { n:"03", c:"#E0733E", t:"One size fits nobody",       b:"Most solutions give everyone the same content. But people are different in how they think, what they need and what actually works for them. Generic guidance produces generic results.", r:"rounded-r-3xl rounded-l-sm" },
               ].map(({ n, c, t, b, r }, i) => (
                 <Reveal key={n} delay={i * 0.1}>
                   <div
                     className={`${r} p-8 min-h-[220px] flex flex-col`}
-                    style={{ background: "rgba(255,255,255,.56)", backdropFilter: "blur(20px)", border: "1px solid rgba(255,255,255,.8)" }}
+                    style={{ background: "rgba(255,255,255,.72)", backdropFilter: "blur(20px)", border: "1px solid rgba(255,255,255,.8)" }}
                   >
                     <div className="font-display font-black text-[10px] tracking-[.12em] mb-5" style={{ color: c }}>{n}</div>
                     <div className="font-display font-extrabold text-[16px] text-[#18182A] mb-3 leading-tight tracking-tight">{t}</div>
@@ -477,16 +498,16 @@ export default function Wuyah() {
                   className="font-display font-black text-[#18182A]"
                   style={{ fontSize: "clamp(22px,3.5vw,44px)", letterSpacing: "-1.8px" }}
                 >
-                  Three integrated layers.<br />One daily system.
+                  Three layers.<br />One daily habit.
                 </h2>
               </div>
             </Reveal>
 
             <div className="space-y-2.5">
               {[
-                { n:"01", c:"#5BB8D4", tag:"Foundation", name:"Mindprint™", h:"Know who you are.", b:"The Mindprint synthesises results from Big Five, MBTI, DISC, Enneagram and other validated frameworks into one continuously evolving identity profile — your strengths, behavioural patterns, friction points and drivers.", d:["Multi-framework","Evolves over time","Identity-first"] },
-                { n:"02", c:"#E07A96", tag:"Structure",  name:"Roadmap",    h:"Know where you're going.", b:"The Roadmap turns your Mindprint into a structured growth plan: clear goals, daily habits, curated learning paths and external content — all connected through behavioural feedback loops that adapt over time.", d:["Goals","Habits","Learning paths","Feedback loops"] },
-                { n:"03", c:"#E0733E", tag:"Execution",  name:"AI Coach",   h:"Show up every day.", b:"The AI Coach activates the system daily — brief, personalised guidance drawn from your Mindprint and Roadmap. Morning intention, midday check-in, afternoon decision support, evening reflection. Under 60 seconds.", d:["Morning","Midday","Afternoon","Evening"] },
+                { n:"01", c:"#5BB8D4", tag:"Foundation", name:"Mindprint™", h:"Know who you are.", b:"Before you can train your mind, you need to understand it. Mindprint™ builds a continuously evolving psychological profile. Not a one-time test. A living picture of how you think, what drives you, and where you get stuck.", d:["Science-backed","Evolves over time","Identity-first"] },
+                { n:"02", c:"#E07A96", tag:"Structure",  name:"Roadmap",    h:"Know where you're going.", b:"Your Roadmap translates who you are into a personalised growth direction. Clear focus, daily habits and learning tailored to your patterns. Not a generic plan, but a structured path built around your actual identity.", d:["Personalised","Adaptive","Direction-driven"] },
+                { n:"03", c:"#E0733E", tag:"Execution",  name:"AI Coach",   h:"Show up every day.", b:"Sofia, your AI coach, activates the system every day. Brief, personal and grounded in your Mindprint and Roadmap. She notices patterns, asks the right questions, and helps you act on what you already know about yourself.", d:["Daily","Personal","Adaptive"] },
               ].map(({ n, c, tag, name, h, b, d }, i) => (
                 <Reveal key={n} delay={i * 0.1}>
                   <Glass className="grid grid-cols-[56px_1fr_auto] gap-6 items-center p-8 hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
@@ -538,18 +559,18 @@ export default function Wuyah() {
                   <span style={{ color: "#5BB8D4" }}>Your identity,</span><br />
                   <span style={{ WebkitTextStroke: "1.5px #5BB8D4", WebkitTextFillColor: "transparent" }}>mapped.</span>
                 </h2>
-                <p className="text-[15px] text-[#46466A] leading-relaxed font-light mb-6 max-w-[380px]">
-                  Not a one-time test. A continuously evolving psychological map — synthesised from the world's most validated frameworks into one coherent identity system.
+                <p className="text-[15px] text-[#6B6B7E] leading-relaxed font-light mb-6 max-w-[380px]">
+                  Most tools tell you what to do. Wuyah starts by understanding who you are. Your Mindprint™ is a living profile, built from validated behavioural science, that grows more accurate and more useful the longer you use it.
                 </p>
                 <div className="flex flex-wrap gap-2 mb-7">
-                  {["Big Five","MBTI","DISC","Enneagram","Braverman","+ more"].map(f => (
+                  {["Science-backed","Continuously evolving","Identity-first","Behaviour-driven"].map(f => (
                     <span key={f} className="text-[11px] font-semibold text-[#26263C] bg-white/60 border border-white/85 rounded-full px-3.5 py-1">{f}</span>
                   ))}
                 </div>
                 <div className="border-t border-[#18182A]/10">
                   {[
                     ["Strengths", "What you naturally do well"],
-                    ["Patterns",  "How you operate under pressure"],
+                    ["Patterns",  "How you think, react and make decisions"],
                     ["Friction",  "Where you get stuck and why"],
                     ["Drivers",   "What gives you energy and meaning"],
                   ].map(([k, v]) => (
@@ -593,7 +614,7 @@ export default function Wuyah() {
                   <div className="mt-6 p-3.5 rounded-2xl" style={{ background: "rgba(91,184,212,.12)", border: "1px solid #A8D9EC" }}>
                     <div className="text-[8px] font-bold tracking-[.1em] uppercase text-[#5BB8D4] mb-1.5">Key insight</div>
                     <div className="text-[12px] text-[#46466A] leading-relaxed font-light">
-                      High drive and openness, with moderate conscientiousness. Likely to perform well in autonomous roles with clear outcomes.
+                      High drive and openness, with moderate conscientiousness. Performs best with autonomy and visible progress.
                     </div>
                   </div>
                 </Glass>
@@ -618,12 +639,12 @@ export default function Wuyah() {
                   <span style={{ color: "#E07A96" }}>Your direction,</span><br />
                   <span style={{ WebkitTextStroke: "1.5px #E07A96", WebkitTextFillColor: "transparent" }}>structured.</span>
                 </h2>
-                <p className="text-[15px] text-[#46466A] leading-relaxed font-light mb-7 max-w-[380px]">
-                  The Roadmap translates your Mindprint into a personalised growth plan. It creates clarity and consistency in daily life — and evolves as your behaviour and goals change over time.
+                <p className="text-[15px] text-[#6B6B7E] leading-relaxed font-light mb-7 max-w-[380px]">
+                  Most people know what they want. They just don't have a structure that fits who they are. Your Roadmap gives you exactly that: a clear, personalised direction that adapts as you grow.
                 </p>
                 <div className="border-t border-[#18182A]/10">
                   {[
-                    ["Goals",          "Clear and measurable — derived from your identity"],
+                    ["Goals",          "Clear and measurable, derived from your identity"],
                     ["Habits",         "Daily actions aligned with your behavioural patterns"],
                     ["Learning paths", "Curated frameworks, content and practices"],
                     ["Feedback loops", "Progress tracking that adapts the system over time"],
@@ -638,7 +659,7 @@ export default function Wuyah() {
 
               <Reveal delay={0.15}>
                 <Glass className="p-8 shadow-xl shadow-[#18182A]/8">
-                  <div className="text-[9px] font-bold tracking-[.1em] text-[#7878A0] uppercase mb-5">Roadmap — Alex M. · Week 14</div>
+                  <div className="text-[9px] font-bold tracking-[.1em] text-[#7878A0] uppercase mb-5">Roadmap · Alex M. · Week 14</div>
                   {/* Focus */}
                   <div className="mb-5 p-4 rounded-2xl" style={{ background: "rgba(224,122,150,.1)", border: "1px solid #F5C8D8" }}>
                     <div className="text-[9px] font-bold tracking-[.1em] uppercase text-[#E07A96] mb-1.5">Current focus</div>
@@ -664,7 +685,7 @@ export default function Wuyah() {
                   {/* Learning */}
                   <div className="mt-5 p-3.5 bg-white/50 rounded-2xl border border-white/85">
                     <div className="text-[9px] font-bold tracking-[.08em] uppercase text-[#7878A0] mb-1.5">Suggested this week</div>
-                    <div className="text-[12px] font-medium text-[#18182A]">📖 Atomic Habits — Chapter 4</div>
+                    <div className="text-[12px] font-medium text-[#18182A]">📖 Atomic Habits · Chapter 4</div>
                     <div className="text-[11px] text-[#7878A0] mt-0.5 font-light">Matched to your consistency goal</div>
                   </div>
                 </Glass>
@@ -691,7 +712,7 @@ export default function Wuyah() {
                   {/* Poster image */}
                   <img
                     src={sofiaImg}
-                    alt="Sofia — Wuyah AI Avatar Coach"
+                    alt="Sofia, Wuyah AI Coach"
                     className="relative w-full max-w-[380px] rounded-3xl shadow-2xl shadow-[#18182A]/20 object-cover"
                     style={{ aspectRatio: "3/4" }}
                   />
@@ -701,10 +722,10 @@ export default function Wuyah() {
                     style={{ borderRadius: 18 }}
                   >
                     <div className="flex items-center gap-2.5">
-                      <div className="w-2 h-2 rounded-full bg-[#3DB87A] pulse-dot" />
+                      <div className="w-2.5 h-2.5 rounded-full bg-[#3DB87A]" style={{animation:"breathe 3.5s ease-in-out infinite"}} />
                       <div>
                         <div className="text-[11px] font-bold text-[#18182A]">Sofia is ready</div>
-                        <div className="text-[10px] text-[#7878A0] font-light">Your AI Coach · Active now</div>
+                        <div className="text-[10px] text-[#7878A0] font-light">Daily mental training · Personal</div>
                       </div>
                     </div>
                   </Glass>
@@ -721,7 +742,7 @@ export default function Wuyah() {
 
               {/* Right — Text */}
               <Reveal>
-                <Label color="#E07A96">Pillar 03</Label>
+                <Label color="#E07A96">AI Coach</Label>
                 <h2
                   className="font-display font-black text-[#18182A] mt-4 mb-5 leading-[1.05]"
                   style={{ fontSize: "clamp(26px,3.5vw,44px)", letterSpacing: "-1.8px" }}
@@ -732,11 +753,11 @@ export default function Wuyah() {
                   </span><br />
                   <span style={{ WebkitTextStroke: "1.5px rgba(24,24,42,.33)", WebkitTextFillColor: "transparent" }}>Every day.</span>
                 </h2>
-                <p className="text-[15px] text-[#46466A] leading-relaxed font-light mb-4 max-w-[400px]">
-                  Sofia is your personal AI avatar coach — always available, always grounded in your Mindprint and Roadmap. Not a chatbot. A daily companion who shows up in text, voice or video, and guides you through your day in under 60 seconds.
+                <p className="text-[15px] text-[#6B6B7E] leading-relaxed font-light mb-4 max-w-[400px]">
+                  Sofia is not a chatbot. She is a calm, intelligent presence: the kind of person who always knows what to say, without making it about herself. She shows up every day, grounded in who you are and where you are going.
                 </p>
-                <p className="text-[15px] text-[#46466A] leading-relaxed font-light mb-7 max-w-[400px]">
-                  Honest. Direct. Personalised. Sofia activates the system so you don't have to think about it — you just grow.
+                <p className="text-[15px] text-[#6B6B7E] leading-relaxed font-light mb-7 max-w-[400px]">
+                  The goal is not to create dependency. The goal is to help you need her less over time, because the thinking and the habits have become your own.
                 </p>
                 <div className="grid grid-cols-2 gap-2.5 mb-5">
                   {[
@@ -757,9 +778,16 @@ export default function Wuyah() {
                     <span key={ch} className="text-[12px] font-semibold text-[#46466A] bg-white/60 border border-white/85 rounded-full px-4 py-1.5">{ch}</span>
                   ))}
                 </div>
-                <p className="text-[12px] text-[#7878A0] font-light italic mt-5">
-                  Always synced with your life. Always personalised. Always adaptive.
-                </p>
+                <div className="mt-6 space-y-2">
+                  <div className="p-3.5 rounded-2xl" style={{background:"rgba(24,24,42,.05)",border:"1px solid rgba(24,24,42,.08)"}}>
+                    <div className="text-[9px] font-bold tracking-[.1em] uppercase text-[#7878A0] mb-1.5">Sofia · Morning</div>
+                    <p className="text-[12px] text-[#6B6B7E] font-light leading-relaxed italic">"Today we train something specific: recognising your patterns before they drive your decisions."</p>
+                  </div>
+                  <div className="p-3.5 rounded-2xl" style={{background:"rgba(91,184,212,.08)",border:"1px solid rgba(91,184,212,.18)"}}>
+                    <div className="text-[9px] font-bold tracking-[.1em] uppercase text-[#5BB8D4] mb-1.5">Sofia · Evening</div>
+                    <p className="text-[12px] text-[#6B6B7E] font-light leading-relaxed italic">"That was a heavy day. You showed up anyway. That is exactly how it works."</p>
+                  </div>
+                </div>
               </Reveal>
             </div>
           </div>
@@ -768,7 +796,7 @@ export default function Wuyah() {
         {/* ════════════════════════════════════════════════════════════════
             FOR WHO
         ════════════════════════════════════════════════════════════════ */}
-        <section id="forwho" className="py-24 px-6">
+        <section id="forwho" className="py-24 px-6" style={{background:"#F9F7F4"}}>
           <div className="max-w-[1100px] mx-auto">
             <Reveal>
               <div className="grid grid-cols-1 md:grid-cols-[140px_1fr] gap-8 items-end mb-12">
@@ -777,9 +805,9 @@ export default function Wuyah() {
                   className="font-display font-black text-[#18182A]"
                   style={{ fontSize: "clamp(22px,3.5vw,44px)", letterSpacing: "-1.8px" }}
                 >
-                  For people who want<br />
+                  Built for people<br />
                   <span style={{ WebkitTextStroke: "1.5px rgba(24,24,42,.33)", WebkitTextFillColor: "transparent" }}>
-                    to grow consistently.
+                    who never thought this was for them.
                   </span>
                 </h2>
               </div>
@@ -787,9 +815,9 @@ export default function Wuyah() {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
               {[
-                { n:"01", c:"#5BB8D4", t:"The ambitious professional",    b:"You're driven, but inconsistent. You have clear goals — but daily life keeps getting in the way. Wuyah gives you the structure to turn intent into habit, built around who you actually are.", tags:["25–45","Performance"] },
-                { n:"02", c:"#E07A96", t:"The reflective self-developer",  b:"You've tried apps, books, journaling. You want something more structured and grounded — a system that adapts to you and stays useful, not just for a week but over time.", tags:["20–40","Self-insight"] },
-                { n:"03", c:"#E0733E", t:"The life stage navigator",       b:"You're in transition — a career change, a new chapter, a feeling of being stuck. You need clarity and direction, not generic advice. Wuyah helps you find both.", tags:["30–60","Clarity"] },
+                { n:"01", c:"#5BB8D4", t:"The driven professional",    b:"You perform well, but the pace takes something out of you. You want to be sharper, recover faster and feel more in control. Without adding another thing to your schedule. Five minutes a day is enough.", tags:["25–45","Performance"] },
+                { n:"02", c:"#E07A96", t:"The person going through something",  b:"Not a crisis. Just a period of friction: too much in your head, too little direction. You've tried things. None of them stuck. Wuyah is built differently: personal from day one, consistent by design.", tags:["30–50","Clarity"] },
+                { n:"03", c:"#E0733E", t:"The organisation that cares",       b:"People who struggle mentally are less effective, less present and more likely to leave. Wuyah gives teams a daily practice that actually works, with the data to show it.", tags:["HR · L&D","B2B"] },
               ].map(({ n, c, t, b, tags }, i) => (
                 <Reveal key={n} delay={i * 0.1}>
                   <Glass className="p-7 h-full flex flex-col hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
@@ -817,7 +845,7 @@ export default function Wuyah() {
         {/* ════════════════════════════════════════════════════════════════
             WHY NOW
         ════════════════════════════════════════════════════════════════ */}
-        <section className="py-24 px-6">
+        <section className="py-24 px-6" style={{background:"#F9F7F4"}}>
           <div className="max-w-[1100px] mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
               <Reveal>
@@ -826,10 +854,10 @@ export default function Wuyah() {
                   className="font-display font-black text-[#18182A] mt-4 leading-[1.0]"
                   style={{ fontSize: "clamp(28px,4vw,52px)", letterSpacing: "-2.2px" }}
                 >
-                  A large market.<br />
-                  No clear leader.<br />
+                  A massive market.<br />
+                  No category owner.<br />
                   <span style={{ background: "linear-gradient(130deg,#E07A96,#E0733E)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
-                    An early-stage<br />opportunity.
+                    A window that<br />won't stay open.
                   </span>
                 </h2>
               </Reveal>
@@ -837,9 +865,9 @@ export default function Wuyah() {
               <Reveal delay={0.12}>
                 <div className="space-y-1">
                   {[
-                    { s:"$43B",  d:"Global self-improvement market (2024 est. · Global Wellness Institute)", c:"#5BB8D4" },
-                    { s:"~70%",  d:"Adults report unmet need for structured personal development (McKinsey Health Institute, 2022)", c:"#E07A96" },
-                    { s:"None",  d:"Platforms with an integrated identity-based daily mental fitness system at scale", c:"#E0733E" },
+                    { s:"$43B",  d:"Global self-improvement market, growing fast and structurally fragmented", c:"#5BB8D4" },
+                    { s:"~70%",  d:"Adults report an unmet need for structured mental fitness support", c:"#E07A96" },
+                    { s:"Zero",  d:"Platforms that have built a daily AI-native mental training system for mainstream adoption", c:"#E0733E" },
                   ].map(({ s, d, c }) => (
                     <Glass key={s} className="flex items-center justify-between px-7 py-5" style={{ borderRadius: 16 }}>
                       <span className="font-display font-black text-[30px] tracking-tight" style={{ color: c }}>{s}</span>
@@ -847,7 +875,7 @@ export default function Wuyah() {
                     </Glass>
                   ))}
                   <p className="text-[14px] text-[#46466A] font-light leading-relaxed pt-4 pl-1">
-                    The mental wellness market has grown significantly, yet remains fragmented. No platform has built a structured, identity-based daily system. That is the gap Wuyah is designed to address.
+                    The market for mental wellbeing is large and growing. But it is served by therapy, meditation apps and self-help content. None of which were built for daily training. That is the gap Wuyah is designed to own.
                   </p>
                 </div>
               </Reveal>
@@ -867,16 +895,16 @@ export default function Wuyah() {
                   className="font-display font-black text-[#18182A]"
                   style={{ fontSize: "clamp(22px,3.5vw,44px)", letterSpacing: "-1.8px" }}
                 >
-                  Early development.<br />Selective conversations.
+                  Early stage.<br />The right conversations now.
                 </h2>
               </div>
             </Reveal>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
               {[
-                { t:"Investors",              c:"#5BB8D4", s:"Pre-seed · Raising now",        pts:["Growing market with no category leader in structured daily mental fitness","SaaS architecture with B2C subscription and B2B licensing paths","Identity layer as long-term product differentiation","System-first design — engineered to scale without proportional headcount growth"], cta:"Schedule a call" },
-                { t:"Psychologists & Coaches",c:"#E07A96", s:"Scientific advisory & content", pts:["Contribute validated frameworks to the Mindprint methodology","Advise on clinical credibility and ethical product design","Co-development and attribution opportunities","Equity or revenue arrangements available for core advisors"], cta:"Start a conversation" },
-                { t:"Strategic Partners",     c:"#E0733E", s:"B2B distribution",              pts:["Corporate HR and employee wellbeing programmes","Health insurance and occupational health providers","Learning & development and coaching platforms","Employee assistance programmes (EAPs)"], cta:"Explore partnership" },
+                { t:"Investors",              c:"#5BB8D4", s:"Pre-seed · Raising now",        pts:["Category creation opportunity in a large, fragmented market","AI-native architecture built for personalisation at scale","A product that becomes more valuable the longer someone uses it","B2C traction driving B2B, the strongest go-to-market dynamic in consumer software"], cta:"Schedule a call" },
+                { t:"Psychologists & Coaches",c:"#E07A96", s:"Scientific advisory",           pts:["Advise on the behavioural science foundations of the platform","Help ensure clinical credibility and responsible product design","Shape how mental fitness is defined and communicated at scale","Advisory equity available for the right contributors"], cta:"Start a conversation" },
+                { t:"Strategic Partners",     c:"#E0733E", s:"B2B distribution",              pts:["HR and employee wellbeing programmes at scale","Health insurance and occupational health providers","Learning & development platforms looking for a daily practice layer","Any organisation that wants mentally stronger teams"], cta:"Explore partnership" },
               ].map(({ t, c, s, pts, cta }, i) => (
                 <Reveal key={t} delay={i * 0.1}>
                   <Glass className="p-7 flex flex-col h-full hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
@@ -886,7 +914,7 @@ export default function Wuyah() {
                     <div className="flex-1 space-y-2.5">
                       {pts.map(p => (
                         <div key={p} className="flex gap-2 items-start">
-                          <span className="text-[13px] shrink-0 leading-tight mt-0.5" style={{ color: c }}>—</span>
+                          <span className="w-1.5 h-1.5 rounded-full shrink-0 mt-[5px] inline-block" style={{ background: c }}></span>
                           <span className="text-[12px] text-[#46466A] font-light leading-relaxed">{p}</span>
                         </div>
                       ))}
@@ -923,13 +951,13 @@ export default function Wuyah() {
                         className="font-display font-bold text-[#18182A] leading-[1.4] mb-6"
                         style={{ fontSize: "clamp(16px,1.9vw,22px)", letterSpacing: "-.6px" }}
                       >
-                        "The insight was never the problem.<br />The structure was."
+                        "Most people wait until something breaks.<br />Wuyah is built for before that."
                       </p>
-                      <p className="text-[14px] text-[#46466A] leading-relaxed font-light mb-4">
-                        I spent years reading, experimenting with different tools, and working with coaches. The insight was often there. But without a structured daily system, nothing compounded. I kept starting over.
+                      <p className="text-[14px] text-[#6B6B7E] leading-relaxed font-light mb-4">
+                        The tools exist. Therapy, coaching, meditation, self-help. The problem is none of them were built for daily use by ordinary people. There is no gym for your mind. Not yet.
                       </p>
-                      <p className="text-[14px] text-[#46466A] leading-relaxed font-light mb-8">
-                        Wuyah is built on one observation: the gap between knowing what to do and consistently doing it is not a willpower problem. It's a systems problem. That is what we are building toward.
+                      <p className="text-[14px] text-[#6B6B7E] leading-relaxed font-light mb-8">
+                        Wuyah is that gym. An AI-native daily training system, built around who each person actually is. The category does not exist yet. We are building it.
                       </p>
                       <div className="flex items-center gap-3">
                         <img
@@ -940,7 +968,7 @@ export default function Wuyah() {
                         <div>
                           <div className="text-[14px] font-bold text-[#18182A]">Frank Geusebroek</div>
                           <div className="text-[12px] font-semibold text-[#E07A96] mb-0.5">Chief Mental Officer</div>
-                          <div className="text-[11px] text-[#7878A0] font-light">Building the category of daily mental fitness</div>
+                          <div className="text-[11px] text-[#7878A0] font-light">Founder · wuyah.com</div>
                         </div>
                       </div>
                     </div>
@@ -982,10 +1010,10 @@ export default function Wuyah() {
                       className="font-display font-black text-[#18182A] mt-4 mb-5 leading-[.98]"
                       style={{ fontSize: "clamp(28px,3.5vw,48px)", letterSpacing: "-2px" }}
                     >
-                      Be part of this<br />from the start.
+                      Follow what<br />we're building.
                     </h2>
-                    <p className="text-[15px] text-[#46466A] font-light leading-relaxed max-w-[320px]">
-                      Sign up for early access to Wuyah. We share product updates, thinking on the mental fitness category, and opportunities to shape what we're building — as users, partners or investors.
+                    <p className="text-[15px] text-[#6B6B7E] font-light leading-relaxed max-w-[320px]">
+                      We share our thinking on mental fitness, product progress and early access opportunities, for users, partners and investors who want to be part of this from the beginning.
                     </p>
                   </div>
 
@@ -1005,7 +1033,7 @@ export default function Wuyah() {
                           disabled={submitting}
                           className="w-full font-display font-bold text-[14px] bg-[#18182A] text-white rounded-2xl py-4 hover:bg-[#E07A96] hover:scale-[1.02] transition-all duration-200 shadow-lg shadow-[#18182A]/20 disabled:opacity-60 disabled:cursor-not-allowed"
                         >
-                          {submitting ? "Sending…" : "Get early access →"}
+                          {submitting ? "Sending…" : "Stay in the loop →"}
                         </button>
                         <p className="text-[11px] text-[#7878A0] text-center font-light">No spam. Unsubscribe anytime.</p>
                       </form>
@@ -1013,7 +1041,7 @@ export default function Wuyah() {
                       <div className="p-8 bg-white/50 rounded-2xl border border-white/85 text-center">
                         <div className="font-display font-black text-[32px] mb-3 text-[#3DB87A]">✓</div>
                         <div className="font-display font-black text-[18px] text-[#18182A] mb-2">You're on the list.</div>
-                        <div className="text-[13px] text-[#46466A] font-light leading-relaxed">We'll reach out as we get closer to launch. Thank you for believing in this.</div>
+                        <div className="text-[13px] text-[#46466A] font-light leading-relaxed">We'll be in touch as we get closer to launch. Good to have you here.</div>
                       </div>
                     )}
                   </div>
@@ -1071,8 +1099,8 @@ export default function Wuyah() {
             </div>
 
             <div className="flex flex-wrap justify-between items-center gap-3">
-              <span className="text-[11px] text-white/18 font-light">© 2025 Wuyah. All rights reserved.</span>
-              <span className="text-[11px] text-white/14 font-light">Mental fitness for everyone.</span>
+              <span className="text-[11px] text-white/18 font-light">© 2026 Wuyah. All rights reserved.</span>
+              <span className="text-[11px] text-white/14 font-light">Daily mental training. For everyone.</span>
             </div>
           </div>
         </footer>
