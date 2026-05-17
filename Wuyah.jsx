@@ -865,8 +865,8 @@ export default function Wuyah() {
               <Reveal delay={0.12}>
                 <div className="space-y-1">
                   {[
-                    { s:"$43B",  d:"Global self-improvement market, growing fast and structurally fragmented", c:"#5BB8D4" },
-                    { s:"~70%",  d:"Adults report an unmet need for structured mental fitness support", c:"#E07A96" },
+                    { s:"$68B",  d:"Global self-improvement market, growing fast and structurally fragmented", c:"#5BB8D4" },
+                    { s:"1B",  d:"Today, over 1 billion people worldwide suffer from mental health issues", c:"#E07A96" },
                     { s:"Zero",  d:"Platforms that have built a daily AI-native mental training system for mainstream adoption", c:"#E0733E" },
                   ].map(({ s, d, c }) => (
                     <Glass key={s} className="flex items-center justify-between px-7 py-5" style={{ borderRadius: 16 }}>
