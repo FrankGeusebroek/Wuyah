@@ -238,7 +238,7 @@ export default function Wuyah() {
                   <div className="flex items-center gap-3 mb-8">
                     <div className="w-6 h-px bg-[#46466A]" />
                     <span className="text-[10px] font-bold tracking-[.18em] uppercase text-[#46466A]">
-                      Wuyah · Daily Mental Fitness · Pre-seed
+                      the era of mental fitness starts here
                     </span>
                   </div>
                 </Reveal>
