@@ -682,7 +682,7 @@ function Founder() {
                 <p>Wuyah is built on the conviction that mental resilience is structurally trainable — for everyone, every day, with the right combination of science, technology and personality.</p>
                 <p>This is my life's work. I'm building Wuyah because the world needs it, and because I believe we can be the first generation to make mental fitness as normal as brushing your teeth.</p>
               </div>
-              <p className="founder-sig">Frank Geusebroek, Apeldoorn 2025</p>
+              <p className="founder-sig">Frank Geusebroek, Amsterdam 2026</p>
             </div>
           </div>
         </div>
