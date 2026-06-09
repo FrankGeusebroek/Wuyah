@@ -434,11 +434,11 @@ function Hero() {
             <button className="btn btn-ghost" onClick={() => scrollTo("systeem")}>Discover the system</button>
           </div>
           <div className={`hero-stat-strip${mounted ? " in" : ""}`}>
-            <div className="stat-item"><div className="stat-number">1 in 4</div><div className="stat-label">people struggle with mental health issues</div></div>
+            <div className="stat-item"><div className="stat-number">1 in 3</div><div className="stat-label">people struggle with mental health issues</div></div>
             <div className="stat-divider"></div>
-            <div className="stat-item"><div className="stat-number">€322B</div><div className="stat-label">annual cost of mental health in the EU</div></div>
+            <div className="stat-item"><div className="stat-number">€322B</div><div className="stat-label">global mental wellness market</div></div>
             <div className="stat-divider"></div>
-            <div className="stat-item"><div className="stat-number">Zero</div><div className="stat-label">daily mental fitness routines — until now</div></div>
+            <div className="stat-item"><div className="stat-number">Zero</div><div className="stat-label">daily mental fitness routines. Until now</div></div>
           </div>
         </div>
         <div className="hero-scroll">
@@ -509,7 +509,7 @@ function CategoryClaim() {
             <div className={`fade-up${inView ? " in-view" : ""}`}>
               <p className="cat-label">A new category</p>
               <h2 className="cat-headline">
-                Not therapy.<br/>Not meditation.<br/>Not coaching.<br/><em>Mental fitness.</em>
+                Not just therapy.<br/>Not just meditation.<br/>Not just coaching.<br/><em>Mental fitness.</em>
               </h2>
               <p className="cat-body">
                 Just as you build physical fitness through daily training, you build mental resilience through daily practice. Wuyah is the first platform that makes this structural, personal and accessible every single day.
@@ -545,9 +545,9 @@ function CategoryClaim() {
 function WhyNow() {
   const [ref, inView] = useInView();
   const cards = [
-    { number: "1 in 4", accent: "var(--sky-deep)", accentLight: "rgba(90,154,212,0.12)", label: "people experience mental health issues", body: "Burnout, anxiety and depression are the fastest-growing causes of absenteeism in Europe. The costs have risen explosively.", d: "delay-1" },
-    { number: "€322B", accent: "var(--rose-deep)", accentLight: "rgba(239,127,164,0.12)", label: "annual economic damage in the EU", body: "Mental health problems cost the European economy more than diabetes, cancer and cardiovascular disease combined.", d: "delay-2" },
-    { number: "72%", accent: "var(--orange-deep)", accentLight: "rgba(244,160,64,0.12)", label: "of cases are preventable", body: "The science is clear: structural mental training works. There was simply no daily, scalable solution — until now.", d: "delay-3" },
+    { number: "1 in 3", accent: "var(--sky-deep)", accentLight: "rgba(90,154,212,0.12)", label: "people experience mental health issues", body: "Burnout, anxiety and depression are the fastest-growing causes of absenteeism in Europe. The costs have risen explosively.", d: "delay-1" },
+    { number: "€600B", accent: "var(--rose-deep)", accentLight: "rgba(239,127,164,0.12)", label: "annual economic damage in the EU", body: "The economic cost of mental health problems in Europe exceeds the entire economies of countries such as Belgium and Sweden.", d: "delay-2" },
+    { number: "72%", accent: "var(--orange-deep)", accentLight: "rgba(244,160,64,0.12)", label: "of cases are preventable", body: "The science is clear: structural mental training works. There was simply no daily, scalable solution. Until now.", d: "delay-3" },
   ];
   return (
     <>
@@ -679,7 +679,7 @@ function Founder() {
               </h2>
               <div className="founder-body">
                 <p>Wuyah started with a simple observation: we invest massively in our physical health, yet for mental fitness there is no daily, accessible routine. Therapy is reactive. Meditation apps are passive. Coaching is elitist.</p>
-                <p>Wuyah is built on the conviction that mental resilience is structurally trainable — for everyone, every day, with the right combination of science, technology and personality.</p>
+                <p>Wuyah is built on the conviction that mental resilience is structurally trainable. For everyone, every day, with the right combination of science, technology and personality. And personal daily guidance.</p>
                 <p>This is my life's work. I'm building Wuyah because the world needs it, and because I believe we can be the first generation to make mental fitness as normal as brushing your teeth.</p>
               </div>
               <p className="founder-sig">Frank Geusebroek, Amsterdam 2026</p>
@@ -697,7 +697,7 @@ function TheSystem() {
   const pillars = [
     { num: "01", name: "Mindprint", tagline: "Who are you, mentally?", body: "Your unique mental identity profile. Built on proven behavioural science. The foundation of everything.", accent: "var(--sky-deep)", accentRgb: "90,154,212", icon: "◈" },
     { num: "02", name: "Roadmap", tagline: "Your personal growth path.", body: "A tailored development journey. Not generic. Not random. Built around your profile and goals.", accent: "var(--rose-deep)", accentRgb: "239,127,164", icon: "◎" },
-    { num: "03", name: "AI Coach Sofia", tagline: "Daily guidance.", body: "Your personal AI coach. Present every day via text, voice and video. Warm, science-backed and always available.", accent: "var(--orange-deep)", accentRgb: "244,160,64", icon: "◉" },
+    { num: "03", name: "AI Coach", tagline: "Daily personal guidance.", body: "Your personal AI coach. Present every day via text, voice and video. Warm, safe, science-backed and always available.", accent: "var(--orange-deep)", accentRgb: "244,160,64", icon: "◉" },
   ];
   return (
     <>
@@ -767,8 +767,8 @@ function TheSystem() {
 function WhoFor() {
   const [ref, inView] = useInView();
   const audiences = [
-    { icon: "🧠", label: "End users", labelColor: "var(--sky-deep)", title: "Everyone who wants to become mentally stronger", body: "From student to CEO. Wuyah is for everyone who wants to structurally build their mental resilience.", cta: "Request early access", ctaId: "early-access", topColor: "var(--sky-deep)" },
-    { icon: "🔬", label: "Professionals", labelColor: "var(--rose-deep)", title: "Psychologists, coaches & HR specialists", body: "Strengthen our scientific foundation. Wuyah is looking for knowledge partners in psychology, behavioural science, coaching and HR.", cta: "Become a knowledge partner", ctaId: "samenwerken", topColor: "var(--rose-deep)" },
+    { icon: "🧠", label: "End users", labelColor: "var(--sky-deep)", title: "Everyone who wants to become mentally stronger", body: "From student to CEO. From artist to athlete. Wuyah is for everyone who wants to structurally build their mental resilience.", cta: "Request early access", ctaId: "early-access", topColor: "var(--sky-deep)" },
+    { icon: "🔬", label: "Professionals", labelColor: "var(--rose-deep)", title: "Psychologists, coaches & scientists", body: "Strengthen our scientific foundation. Wuyah is looking for knowledge partners in psychology, behavioural science, coaching and neuro science.", cta: "Become a knowledge partner", ctaId: "samenwerken", topColor: "var(--rose-deep)" },
     { icon: "🚀", label: "Tech & Investors", labelColor: "var(--orange-deep)", title: "Build the next health category with us", body: "Pre-seed and seed investors, tech partners and developers who want to participate in a platform with global ambition.", cta: "Get in touch", ctaId: "samenwerken", topColor: "var(--orange-deep)" },
   ];
   return (
@@ -1145,7 +1145,7 @@ function Footer() {
             ))}
           </ul>
           <div className="footer-copy">
-            <span><span className="footer-dot"></span>© 2025 Wuyah. All rights reserved.</span>
+            <span><span className="footer-dot"></span>© 2026 Wuyah. All rights reserved.</span>
             <span>Be unshakeable. Whatever today brings.</span>
           </div>
         </div>
