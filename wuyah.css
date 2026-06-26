@@ -341,3 +341,70 @@ a:focus-visible,button:focus-visible,input:focus-visible{
   .wy-header{opacity:1;transform:none;pointer-events:auto;border-bottom-color:rgba(255,255,255,0.40);}
   .scroll-hint{display:none;}
 }
+
+
+/* ───────── Section 2 · The shift (Mental Health vs Mental Fitness) ───────── */
+
+/* Pijl in de titel draagt de koud->warm overgang, net als de divider */
+.section-head h2 .shift-arrow{
+  display:inline-block; margin:0 8px; font-weight:700;
+  background:linear-gradient(135deg,#2E6FA8 0%,#EF7FA4 55%,#F4A040 100%);
+  -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+}
+
+/* Drie-delige opmaak: kaart - sunrise-divider - kaart */
+.shift-grid{grid-template-columns:1fr auto 1fr; gap:0; align-items:stretch;}
+.shift-grid .contrast-card{gap:12px;}
+.shift-grid .cool-card{margin-right:34px;}
+.shift-grid .warm-card{margin-left:34px;}
+
+/* Grotere headers dragen het contrast (Treating / Training) */
+.contrast-card h3{font-size:clamp(23px,3vw,28px); line-height:1.15;}
+
+/* Temperatuur per kant */
+.warm-card{
+  background:linear-gradient(150deg,rgba(255,255,255,0.30),rgba(250,216,192,0.26));
+  border-color:var(--glass-deep-bd);
+  box-shadow:0 20px 50px rgba(244,160,64,0.16);
+}
+
+/* Tijds-regel, een tint stiller */
+.contrast-card .timing{color:var(--ink-muted);}
+
+/* Reactive / Proactive, onderaan verankerd en in de kleur van hun kant */
+.contrast-card .verdict{
+  margin-top:auto; align-self:flex-start;
+  padding:8px 15px; border-radius:100px;
+  font-size:10px; font-weight:600; letter-spacing:0.18em; text-transform:uppercase;
+}
+.v-reactive{color:var(--sky-deep); background:rgba(90,154,212,0.12); border:0.5px solid rgba(90,154,212,0.22);}
+.v-proactive{color:var(--orange-deep); background:rgba(244,160,64,0.14); border:0.5px solid rgba(244,160,64,0.26);}
+
+/* Sunrise-hairline met stil vs-knopje */
+.shift-divider{
+  position:relative; width:1px; align-self:stretch;
+  background:linear-gradient(to bottom,
+    rgba(90,154,212,0) 0%, var(--sky-deep) 16%, var(--rose-deep) 50%,
+    var(--orange-deep) 84%, rgba(244,160,64,0) 100%);
+}
+.shift-vs{
+  position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+  width:46px; height:46px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  background:var(--glass-deep-bg); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+  border:0.5px solid var(--glass-deep-bd); box-shadow:0 6px 18px rgba(46,111,168,0.12);
+  font-size:13px; font-weight:400; color:var(--ink-muted);
+}
+
+/* Mobiel: stapelen, divider wordt horizontaal */
+@media (max-width:720px){
+  .shift-grid{grid-template-columns:1fr;}
+  .shift-grid .cool-card{margin-right:0; margin-bottom:28px;}
+  .shift-grid .warm-card{margin-left:0; margin-top:28px;}
+  .shift-divider{
+    width:64%; height:1px; justify-self:center;
+    background:linear-gradient(to right,
+      rgba(90,154,212,0) 0%, var(--sky-deep) 18%, var(--rose-deep) 50%,
+      var(--orange-deep) 82%, rgba(244,160,64,0) 100%);
+  }
+}
