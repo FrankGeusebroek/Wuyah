@@ -80,35 +80,39 @@
     });
   });
 
-  /* ── Newsletter: calm inline confirmation (prototype, no backend) ── */
+  /* ── Newsletter: real submission to Formspree ── */
   var form = document.querySelector('[data-newsletter]');
   if (form) {
     var input = form.querySelector('input');
     var note = form.parentElement.querySelector('.form-note');
     var submit = function () {
-  var v = (input.value || '').trim();
-  var ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
-  if (!note) return;
-  if (!ok) {
-    note.textContent = 'Please enter a valid email address.';
-    note.classList.remove('ok');
-    return;
+      var v = (input.value || '').trim();
+      var ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+      if (!note) return;
+      if (!ok) {
+        note.textContent = 'Please enter a valid email address.';
+        note.classList.remove('ok');
+        return;
+      }
+      fetch('https://formspree.io/f/mqeoqywl', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: v })
+      }).then(function (res) {
+        if (res.ok) {
+          note.textContent = 'You are on the list. We will be in touch when the doors open.';
+          note.classList.add('ok');
+          input.value = '';
+        } else {
+          note.textContent = 'Something went wrong. Please try again.';
+          note.classList.remove('ok');
+        }
+      }).catch(function () {
+        note.textContent = 'Something went wrong. Please try again.';
+        note.classList.remove('ok');
+      });
+    };
+    form.querySelector('button').addEventListener('click', submit);
+    input.addEventListener('keydown', function (e) { if (e.key === 'Enter') submit(); });
   }
-  fetch('https://formspree.io/f/mqeoqywl', {
-    method: 'POST',
-    headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
-    body: JSON.stringify({ email: v })
-  }).then(function (res) {
-    if (res.ok) {
-      note.textContent = 'You are on the list. We will be in touch when the doors open.';
-      note.classList.add('ok');
-      input.value = '';
-    } else {
-      note.textContent = 'Something went wrong. Please try again.';
-      note.classList.remove('ok');
-    }
-  }).catch(function () {
-    note.textContent = 'Something went wrong. Please try again.';
-    note.classList.remove('ok');
-  });
-};
+})();
